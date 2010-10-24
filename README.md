@@ -6,9 +6,9 @@ Alien parka promotion site.
 USAGE
 -----
 
-  $ sbcl --load alien.lisp
+    $ sbcl --load alien.lisp
 
-Access to http://localhost:8888/index.html
+Access to [http://localhost:8888/index.html](http://localhost:8888/index.html)
 
 Copyright
 ---------
