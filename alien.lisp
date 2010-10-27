@@ -7,8 +7,8 @@
          (declare (ignore hook))
          (format *error-output* "error: ~a~%" condition)
          (quit :unix-status 1)))
-      (document-root "/Users/komagata/Sites/alien-fjord-jp/public")
-      (port "8888"))
+      (document-root "public")
+      (port "4466"))
   (print (list document-root port))
   (setq hunchentoot:*hunchentoot-default-external-format*
     (flex:make-external-format :utf-8 :eol-style :lf))
@@ -21,10 +21,12 @@
   (setq hunchentoot:*dispatch-table*
         (list (hunchentoot:create-regex-dispatcher "^/$" 'index-page)))
   (defun index-page () (cl-who:with-html-output-to-string
-		    (str nil :prologue t)
+		    (str nil :prologue t :indent t)
 		    (:html
 		      (:head
 			(:meta :content "text/html; charset=utf-8" :http-equiv "Content-Type")
+			(:meta :content "text/css" :http-equiv "Content-Style-Type")
+			(:meta :content "text/javascript" :http-equiv "Content-Script-Type")
 			(:title "Alien Parka"))
 		      (:body
 			(:h1 "Alien Parka")
